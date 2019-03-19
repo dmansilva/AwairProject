@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		30C3F9BB2238D0600079D437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9BA2238D0600079D437 /* AppDelegate.swift */; };
-		30C3F9BD2238D0600079D437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9BC2238D0600079D437 /* ViewController.swift */; };
-		30C3F9C02238D0600079D437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F9BE2238D0600079D437 /* Main.storyboard */; };
 		30C3F9C22238D0620079D437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F9C12238D0620079D437 /* Assets.xcassets */; };
-		30C3F9C52238D0620079D437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F9C32238D0620079D437 /* LaunchScreen.storyboard */; };
+		30C3F9CD2239AF0E0079D437 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9CC2239AF0E0079D437 /* TabBarController.swift */; };
+		30C3F9D02239AFFE0079D437 /* ScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9CF2239AFFE0079D437 /* ScoreVC.swift */; };
+		30C3F9D22239B0240079D437 /* TipsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9D12239B0240079D437 /* TipsVC.swift */; };
+		30C3F9D42239B0360079D437 /* TrendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9D32239B0360079D437 /* TrendVC.swift */; };
+		30C3F9D62239B05A0079D437 /* AwairPlusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9D52239B05A0079D437 /* AwairPlusVC.swift */; };
+		30C3F9DA223A10AF0079D437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F9D9223A10AF0079D437 /* LaunchScreen.storyboard */; };
+		30C3F9DE223A1D740079D437 /* NotificationsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9DD223A1D740079D437 /* NotificationsTVC.swift */; };
+		30C3F9E0223B08DC0079D437 /* NotificationModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9DF223B08DC0079D437 /* NotificationModelItem.swift */; };
+		30C3F9E2223B4C150079D437 /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9E1223B4C150079D437 /* NotificationDataModel.swift */; };
+		30C3F9E9223E28710079D437 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F9E7223E28710079D437 /* NotificationTableViewCell.swift */; };
+		30C3F9EA223E28710079D437 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F9E8223E28710079D437 /* NotificationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30C3F9B72238D0600079D437 /* Awair_Programming_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awair_Programming_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C3F9BA2238D0600079D437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30C3F9BC2238D0600079D437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		30C3F9BF2238D0600079D437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30C3F9C12238D0620079D437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		30C3F9C42238D0620079D437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30C3F9C62238D0620079D437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30C3F9CC2239AF0E0079D437 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		30C3F9CF2239AFFE0079D437 /* ScoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreVC.swift; sourceTree = "<group>"; };
+		30C3F9D12239B0240079D437 /* TipsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsVC.swift; sourceTree = "<group>"; };
+		30C3F9D32239B0360079D437 /* TrendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendVC.swift; sourceTree = "<group>"; };
+		30C3F9D52239B05A0079D437 /* AwairPlusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwairPlusVC.swift; sourceTree = "<group>"; };
+		30C3F9D9223A10AF0079D437 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30C3F9DD223A1D740079D437 /* NotificationsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTVC.swift; sourceTree = "<group>"; };
+		30C3F9DF223B08DC0079D437 /* NotificationModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModelItem.swift; sourceTree = "<group>"; };
+		30C3F9E1223B4C150079D437 /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
+		30C3F9E7223E28710079D437 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		30C3F9E8223E28710079D437 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +70,30 @@
 		30C3F9B92238D0600079D437 /* Awair_Programming_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				30C3F9CE2239AFAD0079D437 /* ViewControllers */,
 				30C3F9BA2238D0600079D437 /* AppDelegate.swift */,
-				30C3F9BC2238D0600079D437 /* ViewController.swift */,
-				30C3F9BE2238D0600079D437 /* Main.storyboard */,
+				30C3F9D9223A10AF0079D437 /* LaunchScreen.storyboard */,
 				30C3F9C12238D0620079D437 /* Assets.xcassets */,
-				30C3F9C32238D0620079D437 /* LaunchScreen.storyboard */,
 				30C3F9C62238D0620079D437 /* Info.plist */,
+				30C3F9DF223B08DC0079D437 /* NotificationModelItem.swift */,
+				30C3F9E1223B4C150079D437 /* NotificationDataModel.swift */,
 			);
 			path = Awair_Programming_Challenge;
+			sourceTree = "<group>";
+		};
+		30C3F9CE2239AFAD0079D437 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30C3F9CC2239AF0E0079D437 /* TabBarController.swift */,
+				30C3F9CF2239AFFE0079D437 /* ScoreVC.swift */,
+				30C3F9D12239B0240079D437 /* TipsVC.swift */,
+				30C3F9D32239B0360079D437 /* TrendVC.swift */,
+				30C3F9D52239B05A0079D437 /* AwairPlusVC.swift */,
+				30C3F9DD223A1D740079D437 /* NotificationsTVC.swift */,
+				30C3F9E7223E28710079D437 /* NotificationTableViewCell.swift */,
+				30C3F9E8223E28710079D437 /* NotificationTableViewCell.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C3F9C52238D0620079D437 /* LaunchScreen.storyboard in Resources */,
 				30C3F9C22238D0620079D437 /* Assets.xcassets in Resources */,
-				30C3F9C02238D0600079D437 /* Main.storyboard in Resources */,
+				30C3F9DA223A10AF0079D437 /* LaunchScreen.storyboard in Resources */,
+				30C3F9EA223E28710079D437 /* NotificationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +167,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C3F9BD2238D0600079D437 /* ViewController.swift in Sources */,
+				30C3F9D22239B0240079D437 /* TipsVC.swift in Sources */,
+				30C3F9D42239B0360079D437 /* TrendVC.swift in Sources */,
+				30C3F9DE223A1D740079D437 /* NotificationsTVC.swift in Sources */,
 				30C3F9BB2238D0600079D437 /* AppDelegate.swift in Sources */,
+				30C3F9E2223B4C150079D437 /* NotificationDataModel.swift in Sources */,
+				30C3F9D62239B05A0079D437 /* AwairPlusVC.swift in Sources */,
+				30C3F9E0223B08DC0079D437 /* NotificationModelItem.swift in Sources */,
+				30C3F9D02239AFFE0079D437 /* ScoreVC.swift in Sources */,
+				30C3F9CD2239AF0E0079D437 /* TabBarController.swift in Sources */,
+				30C3F9E9223E28710079D437 /* NotificationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		30C3F9BE2238D0600079D437 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30C3F9BF2238D0600079D437 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		30C3F9C32238D0620079D437 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30C3F9C42238D0620079D437 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		30C3F9C72238D0620079D437 /* Debug */ = {
@@ -282,15 +303,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94AWEXFJMM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Awair_Programming_Challenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dsilvvapps.Awair-Programming-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,15 +324,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94AWEXFJMM;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Awair_Programming_Challenge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dsilvvapps.Awair-Programming-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

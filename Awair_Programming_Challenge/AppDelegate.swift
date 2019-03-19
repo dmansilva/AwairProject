@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        /*
+        let homeViewController = UIViewController()
+        homeViewController.view.backgroundColor = UIColor.red
+        window!.rootViewController = homeViewController
+        */
+        window?.rootViewController = TabBarController()
+        window!.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true
     }
