@@ -14,6 +14,8 @@ protocol myURLSessionTask {
 
 protocol NotificationModelDelegate: class {
     func didRecieveDataUpdate(data: [NotificationModelItem])
+    func didRecieveDateArrayUpdate(dateArray: [String])
+    func didRecieveDateDictUpdate(dateDict: [String:Int])
     func didFailDataUpdateWithError(error: Error)
 }
 
@@ -25,6 +27,7 @@ class NotificationDataModel {
     
     weak var delegate : NotificationModelDelegate?
     private var myURLSession: myURLSessionTask?
+    private var dateDictionary = [String:Int]()
     
     init(session: myURLSessionTask = URLSession.shared) {
         self.myURLSession = session
@@ -50,7 +53,7 @@ class NotificationDataModel {
                     print("Cant get jsonResult")
                     return
                 }
-                self.sortJSONData(jsonData: jsonResult)
+                self.addJSONData(jsonData: jsonResult)
             } catch {
                 print("JSONParser error :", error.localizedDescription)
             }
@@ -58,16 +61,56 @@ class NotificationDataModel {
         task?.resume()
     }
     
-    func sortJSONData(jsonData: [[String: Any]]) {
+    func addJSONData(jsonData: [[String: Any]]) {
         
         var data = [NotificationModelItem]()
+        var dateArray = [String]()
         
         for eachDict in jsonData {
             
             if let eachModelItem = NotificationModelItem(data: eachDict) {
+                let dateString = dateFormatter(modelItem: eachModelItem)
+                dateArray.append(dateString)
                 data.append(eachModelItem)
             }
         }
+        
+        let dateUniqueArray = Array(Set(dateArray))
         self.delegate?.didRecieveDataUpdate(data: data)
+        self.delegate?.didRecieveDateArrayUpdate(dateArray: dateUniqueArray)
+        self.delegate?.didRecieveDateDictUpdate(dateDict: dateDictionary)
+    }
+    
+    func dateFormatter(modelItem: NotificationModelItem) -> String {
+        
+        let dateFormatGetter = DateFormatter()
+        let dateFormatPrinter = DateFormatter()
+        dateFormatGetter.dateFormat = "yyyy-MM-dd"
+        dateFormatPrinter.dateFormat = "MMM-dd-yyyy"
+        var dateString = ""
+        
+        let timeStamp = modelItem.timestamp as! String
+        let endIndex = timeStamp.index(timeStamp.endIndex, offsetBy: -14)
+        let dateSubString = timeStamp[..<endIndex]
+        let date = String(dateSubString)
+        
+        
+        
+        if let dateFormatted = dateFormatGetter.date(from: date) {
+            dateString = dateFormatPrinter.string(from: dateFormatted)
+            if dateDictionary[dateString] != nil {
+                var dateCount = dateDictionary[dateString] as! Int
+                dateCount += 1
+                dateDictionary[dateString] = dateCount
+            } else {
+                dateDictionary[dateString] = 1
+            }
+            return dateString
+        
+        } else {
+            print("There was an error printing the date")
+            return dateString
+        }
+        
     }
 }

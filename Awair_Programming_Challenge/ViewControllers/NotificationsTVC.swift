@@ -14,6 +14,8 @@ class NotificationsTVC: UITableViewController {
     public var NotificationInstance: NotificationModelDelegate!
     
     private let dataSource = NotificationDataModel()
+    private var dateArrayData = [String]()
+    private var dateDictData = [String:Int]()
     
     let link = "http://35.233.197.47/inbox?_limit=10_page=1"
     
@@ -24,7 +26,7 @@ class NotificationsTVC: UITableViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,22 +41,33 @@ class NotificationsTVC: UITableViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return JSONData.count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return dateArrayData.count
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dateArrayData[section]
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let arrayIndex = dateArrayData[section]
+        if let count = dateDictData[arrayIndex] {
+            return count
+        } else {
+            return 0
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let indexDict = self.JSONData[indexPath.row]
-        
         if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as? NotificationTableViewCell {
             cell.configureWithNotificationModelItem(item: indexDict)
             return cell
         } else {
             return UITableViewCell()
         }
-
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -64,6 +77,14 @@ class NotificationsTVC: UITableViewController {
 }
 
 extension NotificationsTVC: NotificationModelDelegate {
+    
+    func didRecieveDateDictUpdate(dateDict: [String : Int]) {
+        dateDictData = dateDict
+    }
+    
+    func didRecieveDateArrayUpdate(dateArray: [String]) {
+        dateArrayData = dateArray
+    }
     
     func didRecieveDataUpdate(data: [NotificationModelItem]) {
         JSONData = data
