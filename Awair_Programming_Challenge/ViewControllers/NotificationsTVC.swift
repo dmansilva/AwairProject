@@ -19,7 +19,7 @@ class NotificationsTVC: UITableViewController {
     
     let link = "http://35.233.197.47/inbox?_limit=10_page=1"
     
-    fileprivate var JSONData = [NotificationModelItem]() {
+    fileprivate var dataDict = [String: [NotificationModelItem]]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -60,14 +60,22 @@ class NotificationsTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let indexDict = self.JSONData[indexPath.row]
-        if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as? NotificationTableViewCell {
-            cell.configureWithNotificationModelItem(item: indexDict)
-            return cell
+        
+        let date = dateArrayData[indexPath.section]
+        
+        if let arrayOFModelItems = dataDict[date] {
+    
+            let indexMI = arrayOFModelItems[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as? NotificationTableViewCell {
+                cell.configureWithNotificationModelItem(item: indexMI)
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         } else {
             return UITableViewCell()
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,16 +86,17 @@ class NotificationsTVC: UITableViewController {
 
 extension NotificationsTVC: NotificationModelDelegate {
     
+    func didRecieveDataDictUpdate(data: [String : [NotificationModelItem]]) {
+        dataDict = data
+    }
+    
+    
     func didRecieveDateDictUpdate(dateDict: [String : Int]) {
         dateDictData = dateDict
     }
     
     func didRecieveDateArrayUpdate(dateArray: [String]) {
         dateArrayData = dateArray
-    }
-    
-    func didRecieveDataUpdate(data: [NotificationModelItem]) {
-        JSONData = data
     }
     
     func didFailDataUpdateWithError(error: Error) {

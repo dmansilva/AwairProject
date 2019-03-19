@@ -13,7 +13,7 @@ protocol myURLSessionTask {
 }
 
 protocol NotificationModelDelegate: class {
-    func didRecieveDataUpdate(data: [NotificationModelItem])
+    func didRecieveDataDictUpdate(data: [String: [NotificationModelItem]])
     func didRecieveDateArrayUpdate(dateArray: [String])
     func didRecieveDateDictUpdate(dateDict: [String:Int])
     func didFailDataUpdateWithError(error: Error)
@@ -28,6 +28,7 @@ class NotificationDataModel {
     weak var delegate : NotificationModelDelegate?
     private var myURLSession: myURLSessionTask?
     private var dateDictionary = [String:Int]()
+    private var dataDict = [String : [NotificationModelItem]]()
     
     init(session: myURLSessionTask = URLSession.shared) {
         self.myURLSession = session
@@ -63,7 +64,6 @@ class NotificationDataModel {
     
     func addJSONData(jsonData: [[String: Any]]) {
         
-        var data = [NotificationModelItem]()
         var dateArray = [String]()
         
         for eachDict in jsonData {
@@ -71,14 +71,13 @@ class NotificationDataModel {
             if let eachModelItem = NotificationModelItem(data: eachDict) {
                 let dateString = dateFormatter(modelItem: eachModelItem)
                 dateArray.append(dateString)
-                data.append(eachModelItem)
             }
         }
         
         let dateUniqueArray = Array(Set(dateArray))
-        self.delegate?.didRecieveDataUpdate(data: data)
         self.delegate?.didRecieveDateArrayUpdate(dateArray: dateUniqueArray)
         self.delegate?.didRecieveDateDictUpdate(dateDict: dateDictionary)
+        self.delegate?.didRecieveDataDictUpdate(data: dataDict)
     }
     
     func dateFormatter(modelItem: NotificationModelItem) -> String {
@@ -94,10 +93,9 @@ class NotificationDataModel {
         let dateSubString = timeStamp[..<endIndex]
         let date = String(dateSubString)
         
-        
-        
         if let dateFormatted = dateFormatGetter.date(from: date) {
             dateString = dateFormatPrinter.string(from: dateFormatted)
+            self.addingToDataDict(dateStr: dateString, modelItem: modelItem)
             if dateDictionary[dateString] != nil {
                 var dateCount = dateDictionary[dateString] as! Int
                 dateCount += 1
@@ -113,4 +111,17 @@ class NotificationDataModel {
         }
         
     }
+    
+    func addingToDataDict(dateStr: String, modelItem: NotificationModelItem) {
+        
+        if dataDict[dateStr] != nil {
+            var NMIData = dataDict[dateStr]
+            NMIData?.append(modelItem)
+            dataDict[dateStr] = NMIData
+        } else {
+            dataDict[dateStr] = [modelItem]
+        }
+
+    }
 }
+
